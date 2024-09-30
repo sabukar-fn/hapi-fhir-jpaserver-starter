@@ -459,9 +459,7 @@ public class StarterJpaConfig {
 			fhirServer.registerProvider(theIpsOperationProvider.get());
 		}
 
-		if(EnumUtils.isValidEnum(HistoryCountModeEnum.class, appProperties.getHistory_count_mode())){
-			jpaStorageSettings.setHistoryCountMode(HistoryCountModeEnum.valueOf(appProperties.getHistory_count_mode()));
-		}
+		jpaStorageSettings.setHistoryCountMode(appProperties.getHistory_count_mode());
 
 		// register custom providers
 		registerCustomProviders(fhirServer, appContext, appProperties.getCustomProviderClasses());
