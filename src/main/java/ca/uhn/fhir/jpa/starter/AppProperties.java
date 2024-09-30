@@ -4,6 +4,7 @@ package ca.uhn.fhir.jpa.starter;
 import ca.uhn.fhir.context.FhirVersionEnum;
 import ca.uhn.fhir.jpa.api.config.JpaStorageSettings.ClientIdStrategyEnum;
 import ca.uhn.fhir.jpa.api.config.JpaStorageSettings.IdStrategyEnum;
+import ca.uhn.fhir.jpa.api.model.HistoryCountModeEnum;
 import ca.uhn.fhir.jpa.model.entity.NormalizedQuantitySearchLevel;
 import ca.uhn.fhir.jpa.packages.PackageInstallationSpec;
 import ca.uhn.fhir.rest.api.EncodingEnum;
@@ -71,7 +72,7 @@ public class AppProperties {
   private List<String> supported_resource_types = new ArrayList<>();
   private List<Bundle.BundleType> allowed_bundle_types = null;
   private Boolean narrative_enabled = true;
-  private String history_count_mode = "CACHED_ONLY_WITHOUT_OFFSET";
+  private HistoryCountModeEnum history_count_mode = HistoryCountModeEnum.CACHED_ONLY_WITHOUT_OFFSET;
 
   private Boolean ig_runtime_upload_enabled = false;
 
@@ -555,12 +556,12 @@ public Cors getCors() {
     this.narrative_enabled = narrative_enabled;
   }
 
-  public String getHistory_count_mode()
+  public HistoryCountModeEnum getHistory_count_mode()
   {
     return history_count_mode;
   }
 
-  public void setHistory_count_mode(String history_count_mode)
+  public void setHistory_count_mode(HistoryCountModeEnum history_count_mode)
   {
     this.history_count_mode = history_count_mode;
   }
